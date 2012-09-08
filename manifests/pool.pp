@@ -1,10 +1,10 @@
 define dhcp::pool (
   $range,
-  $gateway,
+  $gateway    = '',
   $subnet,
-  $failover    = '',
-  $options     = '',
-  $parameters  = ''
+  $failover   = '',
+  $options    = '',
+  $parameters = ''
 ) {
 
   include dhcp::params

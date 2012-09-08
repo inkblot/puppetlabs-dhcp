@@ -1,8 +1,9 @@
 define dhcp::subnet (
   $mask,
-  $gateway    = '',
-  $options    = '',
-  $parameters = '',
+  $gateway       = '',
+  $options       = '',
+  $parameters    = '',
+  $authoritative = true,
 ) {
 
   include dhcp::params

@@ -2,6 +2,9 @@
 # <%= name %>
 #################################
 subnet <%= name %> netmask <%= mask %> {
+<%- if authoritative -%>
+  authoritative;
+<%- end -%>
   option subnet-mask <%= mask %>;
 <%- if gateway != '' -%>
   option routers <%= gateway %>;
