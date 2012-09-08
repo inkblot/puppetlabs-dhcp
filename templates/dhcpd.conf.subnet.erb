@@ -1,0 +1,24 @@
+#################################
+# <%= name %>
+#################################
+subnet <%= name %> netmask <%= mask %> {
+  option subnet-mask <%= mask %>;
+<%- if gateway != '' -%>
+  option routers <%= gateway %>;
+<%- end -%>
+<%- if options.is_a? Array -%>
+<%-   options.sort_by {|k,v| k}.each do |option, value| -%>
+  option <%= option %> <%= value %>;
+<%-   end -%>
+<%- end -%>
+<%- if parameters.is_a? Array -%>
+<%-   parameters.sort_by {|k,v| k}.each do |parameter, value| -%>
+<%-     if value != '' -%>
+  <%= parameter %>;
+<%-     else -%>
+  <%= parameter %> <%= value %>;
+<%-     end -%>
+<%-   end -%>
+<%- end -%>
+  include "<%= @dhcp_dir %>/dhcpd-subnet-<%= name %>.conf";
+}

@@ -1,8 +1,7 @@
 define dhcp::pool (
-  $network,
-  $mask,
   $range,
   $gateway,
+  $subnet,
   $failover    = '',
   $options     = '',
   $parameters  = ''
@@ -13,7 +12,8 @@ define dhcp::pool (
   $dhcp_dir = $dhcp::params::dhcp_dir
 
   concat::fragment { "dhcp_pool_${name}":
-    target  => "${dhcp_dir}/dhcpd.pools",
+    order   => '50',
+    target  => "${dhcp_dir}/dhcpd.subnet-${subnet}.conf",
     content => template('dhcp/dhcpd.pool.erb'),
   }
 
