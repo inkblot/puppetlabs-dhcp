@@ -20,5 +20,5 @@ subnet <%= name %> netmask <%= mask %> {
 <%-     end -%>
 <%-   end -%>
 <%- end -%>
-  include "<%= @dhcp_dir %>/dhcpd-subnet-<%= name %>.conf";
+  include "<%= @dhcp_dir %>/dhcpd.subnet-<%= name %>.conf";
 }
