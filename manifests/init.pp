@@ -120,14 +120,6 @@ class dhcp (
   # }
   create_resources('concat::fragment', $dhcp_conf_fragments)
 
-  # dhcpd.pool
-  concat { "${dhcp_dir}/dhcpd.pools": }
-  concat::fragment { 'dhcp-pools-header':
-    target  => "${dhcp_dir}/dhcpd.pools",
-    content => "# DHCP Pools\n",
-    order   => 01,
-  }
-
   # dhcpd.hosts
   concat { "${dhcp_dir}/dhcpd.hosts": }
   concat::fragment { 'dhcp-hosts-header':
