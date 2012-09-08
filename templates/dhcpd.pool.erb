@@ -8,8 +8,6 @@ pool {
 <%- range.each do |r| -%>
   range <%= r %>;
 <%- end -%>
-}
-
 <%- if gateway != '' -%>
 option routers <%= gateway %>;
 <%- end -%>

@@ -6,12 +6,12 @@ subnet <%= name %> netmask <%= mask %> {
 <%- if gateway != '' -%>
   option routers <%= gateway %>;
 <%- end -%>
-<%- if options.is_a? Array -%>
+<%- if options.is_a? Hash -%>
 <%-   options.sort_by {|k,v| k}.each do |option, value| -%>
   option <%= option %> <%= value %>;
 <%-   end -%>
 <%- end -%>
-<%- if parameters.is_a? Array -%>
+<%- if parameters.is_a? Hash -%>
 <%-   parameters.sort_by {|k,v| k}.each do |parameter, value| -%>
 <%-     if value != '' -%>
   <%= parameter %>;
