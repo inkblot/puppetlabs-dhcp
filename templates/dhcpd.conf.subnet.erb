@@ -13,7 +13,7 @@ subnet <%= name %> netmask <%= mask %> {
 <%- end -%>
 <%- if parameters.is_a? Hash -%>
 <%-   parameters.sort_by {|k,v| k}.each do |parameter, value| -%>
-<%-     if value != '' -%>
+<%-     if value == '' -%>
   <%= parameter %>;
 <%-     else -%>
   <%= parameter %> <%= value %>;
