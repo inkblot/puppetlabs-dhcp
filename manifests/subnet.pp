@@ -8,8 +8,11 @@ define dhcp::subnet (
 
   include dhcp::params
   $dhcp_dir = $dhcp::params::dhcp_dir
+  $servicename = $dhcp::params::servicename
 
-  concat { "${dhcp_dir}/dhcpd.subnet-${name}.conf": }
+  concat { "${dhcp_dir}/dhcpd.subnet-${name}.conf":
+    notify => Service[$servicename],
+  }
   concat::fragment { "dhcp_subnet_${name}_header":
     order   => '00',
     target  => "${dhcp_dir}/dhcpd.subnet-${name}.conf",
