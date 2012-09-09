@@ -1,0 +1,15 @@
+
+class "<%= name %>" {
+<%- if match != '' -%>
+  match <%= match %>;
+<%- end -%>
+<%- if spawn != '' -%>
+  spawn with <%= spawn %>;
+<%- end -%>
+<%- if limit != '' -%>
+  lease limit <%= limit %>;
+<%- end -%>
+}
+<%- subclasses.each do |subclass|
+subclass "<%= name %>" <%= subclass %>
+<%- end -%>
