@@ -10,6 +10,6 @@ class "<%= name %>" {
   lease limit <%= limit %>;
 <%- end -%>
 }
-<%- subclasses.each do |subclass|
+<%- subclasses.each do |subclass| -%>
 subclass "<%= name %>" <%= subclass %>
 <%- end -%>
